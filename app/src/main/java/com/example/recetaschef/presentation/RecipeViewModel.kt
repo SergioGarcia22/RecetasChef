@@ -82,6 +82,7 @@ class RecipeViewModel(
                     pasos              = pasos
                 )
             )
+            if (success) loadRecipes()
             _uiState.update {
                 it.copy(
                     isLoading      = false,

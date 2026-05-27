@@ -34,6 +34,10 @@ fun HomeScreen(
     val uiState by viewModel.uiState.collectAsState()
     var searchQuery by remember { mutableStateOf("") }
 
+    LaunchedEffect(Unit) {
+        viewModel.loadRecipes()
+    }
+
     // Filtra recetas según búsqueda
     val filteredRecipes = uiState.recipes.filter {
         it.nombre.contains(searchQuery, ignoreCase = true) ||
